@@ -1,0 +1,62 @@
+.home-page {
+  background-image: url('../../assets/images/image32.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: 575px){
+    background-position: 60%;
+  }
+
+  h1 {
+    font-size: 90px;
+    font-weight: bold;
+    font-family: Bebas, sans-serif;
+    padding: 150px 60px 50px 60px;
+    background: linear-gradient(to right, #06768c, #0d9eba, #2fc2b6, #36b4c9, #5AC6C6, #40B5BC);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media screen and (min-width: 768px) and (max-width: 991px){
+      font-size: 52px;
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 767px){
+      font-size: 40px;
+    }
+
+    @media screen and (max-width: 575px){
+      padding-left: 15px;
+      font-size: 34px;
+      padding-bottom: 20px;
+
+      br{
+        display: none;
+      }
+    }
+  }
+
+  .btn-wrapper {
+    padding: 30px 60px;
+
+    @media screen and (max-width: 575px){
+      padding-left: 15px;
+    }
+
+    .btn {
+      background-color: #286699;
+      color: white;
+      border-radius: 6px;
+      border: 2px solid #42ABC5;
+      padding: 8px 35px;
+
+      @media screen and (max-width: 575px){
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+

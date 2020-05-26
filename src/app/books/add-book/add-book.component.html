@@ -1,0 +1,47 @@
+<form autocomplete="off" #form = "ngForm" (ngSubmit)="onSubmit(form)" class="book-form mb-5">
+  <h2 class="mb-3">Add Book</h2>
+    <mat-form-field class="w-100 mt-2 mb-2">
+        <mat-label><i class="fas fa-book mr-2"></i>Title</mat-label>
+        <input name = "title" [(ngModel)]="formData.title" #title matInput type="text" required>
+        <mat-error>Title is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-100 mt-2 mb-2">
+        <mat-label><i class="fas fa-user mr-2"></i>Author</mat-label>
+        <input name="author"  [(ngModel)]="formData.author" matInput type="text" required>
+        <mat-error>Author is required.</mat-error>
+    </mat-form-field>
+
+  <div class="select-image-wrapper">
+    <button class="btn select-image-btn" type="button" (click)="selectImage.click()">Select Image</button>
+    <input name="selectImage" (ngModel)="selectedImage" type="file" accept="image/png image/jpg image/jpeg" class="select-image-input" (change)="onImageChange($event)" #selectImage required>
+    <p *ngIf="submitted && !selectedImage" class="error-msg">Image is required.</p>
+  </div>
+
+    <mat-form-field class="w-100 mt-2 mb-2">
+      <mat-label><i class="fas fa-align-justify mr-2"></i>Short description</mat-label>
+      <textarea name="description" [(ngModel)]="formData.description" matInput type="text" required></textarea>
+      <mat-error>Short description is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-100 mt-2 mb-2">
+      <mat-label><i class="fas fa-book-open mr-2"></i>Number of pages</mat-label>
+      <input name="pages" [(ngModel)]="formData.pages" matInput type="number" required>
+      <mat-error>Number of pages is required.</mat-error>
+    </mat-form-field>
+    <div>
+      <button class="btn mt-4 mb-2" type="submit">Submit<i *ngIf="submitted" class="fas fa-spinner fa-spin"></i></button>
+    </div>
+</form>
+
+<ng-template #addBookModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Success</h4>
+  </div>
+  <div class="modal-body">
+    You have successfully added {{book.Title | uppercase}} in your home library.
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="modal-btn" (click)="navigateToBook()">OK</button>
+  </div>
+</ng-template>

@@ -1,0 +1,66 @@
+$base-color: #46bbc9;
+$base-color-dark: #42abc5;
+
+.wrapper {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  .form-wrapper {
+    width: 500px;
+    border: 2px solid $base-color;
+    max-width: 90%;
+
+    .login-form {
+      width: 400px;
+      margin: auto;
+      max-width: 100%;
+      padding: 20px;
+
+      .btn {
+        background-color: $base-color;
+        color: white;
+        border-radius: 6px;
+        border: 2px solid $base-color-dark;
+        padding: 8px 35px;
+        position: relative;
+
+        i.fa-spinner {
+          position: absolute;
+          top: 11px;
+          right: 10px;
+        }
+      }
+
+      .mat-input-element {
+        color: rgba(120, 133, 136, 0.945) !important;
+      }
+
+      .register-option {
+        font-size: 14px;
+        color: #777;
+
+        a {
+          color: $base-color-dark;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: $base-color-dark !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: $base-color-dark !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: $base-color-dark !important;
+}
+
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $base-color-dark;
+}

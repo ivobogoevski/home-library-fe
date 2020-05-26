@@ -1,0 +1,23 @@
+.navbar-light .navbar-brand {
+  color: #42ABC5;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: #8f8f8f;
+}
+
+.nav-link:active {
+  color: #8f8f8f;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: rgba(0,0,0,0.6);
+}
+
+.navbar-toggler {
+  outline: none !important;
+}
+
+.logOut {
+  cursor: pointer;
+}

@@ -1,0 +1,75 @@
+.book-form{
+  width: 600px;
+  margin: auto;
+  max-width: 100%;
+  padding: 50px;
+  border: 2px solid #42ABC5;
+  border-radius: 12px;
+  margin-top: 83px;
+  max-width: 90%;
+
+  @media screen and (max-width: 576px) {
+      padding: 40px 20px;
+  }
+}
+
+h2 {
+  color: #42ABC5;
+}
+
+.btn {
+  background-color: #46bbc9;
+  color: white;
+  border-radius: 6px;
+  border: 2px solid #42ABC5;
+  padding: 8px 35px;
+  position: relative;
+
+  i.fa-spinner {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+  }
+}
+
+.select-image-wrapper {
+  position: relative;
+}
+
+.select-image-input {
+  color: #42ABC5;
+  position: absolute;
+  left: 21px;
+  top: 5px;
+  z-index: -1;
+}
+
+.select-image-btn {
+  position: relative;
+  background-color: white !important;
+  color: #42ABC5 !important;
+  padding: 5px 12px !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #42ABC5 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #42ABC5 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #42ABC5!important;
+}
+
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #42ABC5;
+}
+
+.mat-input-element {
+  color: rgba(120, 133, 136, 0.945)!important;
+}

@@ -1,0 +1,26 @@
+<div class="h-100 wrapper">
+    <div class="form-wrapper">
+      <div>
+        <a routerLink="/">
+          <img src="../../assets/images/image40.jpg" class="img-fluid">
+        </a>
+      </div>
+      <form class="login-form" [formGroup]="loginForm" autocomplete="off" (ngSubmit)="onSubmit()">
+        <mat-form-field class="w-100 pt-2 pb-2">
+            <mat-label><i class="fas fa-user pr-2"></i>E-mail</mat-label>
+            <input formControlName="email" matInput type="email">
+            <mat-error *ngIf="loginForm.get('email').invalid">Please enter valid email address.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 pt-2 pb-2">
+            <mat-label><i class="fas fa-lock pr-2"></i>Password</mat-label>
+            <input formControlName="password" matInput type="password">
+            <mat-error *ngIf="loginForm.get('password').invalid">Please enter your password.</mat-error>
+        </mat-form-field>
+        <div>
+          <button class="btn mt-4 mb-4" type="submit" [disabled]="displaySpinner">LOGIN <i *ngIf="displaySpinner" class="fas fa-spinner fa-spin"></i></button>
+        </div>
+        <div class="register-option">Don't have an account? <a routerLink="/register">Register</a></div>
+      </form>
+    </div>
+</div>

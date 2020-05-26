@@ -1,0 +1,76 @@
+<div class="container">
+  <div *ngIf="isLoading">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <ng-container *appForScreen="'desktop&tablet'">
+    <ul class="row align" *ngIf="modifiedBooks.length > 0; else noBooks">
+      <ng-container *ngFor="let book of modifiedBooks">
+        <li class="col-3" *ngIf="book.title !== 'shelf'">
+          <figure class='book'>
+              <ul class='hardcover_front'>
+                  <li>
+                      <div class="coverDesign" [ngStyle]="{'background-image': 'url(' + book.Image+')'}"></div>
+                  </li>
+                  <li></li>
+              </ul>
+
+
+              <ul class='page'>
+                  <li></li>
+                  <li>
+                    <a class="btn details" (click)="goToDetails(book.BookID)">Details</a>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+              </ul>
+
+
+              <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+              </ul>
+              <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+              </ul>
+          </figure>
+        </li>
+        <section class="shelf" *ngIf="book.title === 'shelf'">
+          <div>
+          </div>
+        </section>
+      </ng-container>
+    </ul>
+  </ng-container>
+
+  <ng-container *appForScreen="'mobile'">
+    <div class="row books-wrap" *ngIf="books && books.length > 0; else noBooks">
+      <div class="col-12">
+        <mat-card class="book-card" *ngFor="let book of books">
+          <mat-card-header>
+            <mat-card-title>{{book.Title}}</mat-card-title>
+            <mat-card-subtitle>{{book.Author}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="book.Image" [alt]="book.Title">
+          <mat-card-content>
+            <p>{{book.Description | truncate : 20}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button class="btn add-btn" (click)="goToDetails(book.BookID)">DETAILS</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noBooks>
+    <p class="no-book">You don't have any books yet.</p>
+    <div class="text-center">
+      <button class="btn add-btn" type="button" (click)="addBook()">ADD BOOK</button>
+    </div>
+  </ng-template>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+<div class="home-page h-100">
+  <h1>WELCOME TO YOUR <br>HOME LIBRARY</h1>
+  <div class="btn-wrapper">
+    <div *ngIf="user; else noUserAuthenticated">
+      <button class="btn" type="button" (click)="goToBooks()">GO TO BOOKS</button>
+    </div>
+    <ng-template #noUserAuthenticated>
+      <div>
+        <button class="btn" type="button" (click)="register()">CREATE ACCOUNT</button>
+        <button class="btn ml-3" type="button" (click)="login()">LOG IN</button>
+      </div>
+    </ng-template>
+  </div>
+</div>
