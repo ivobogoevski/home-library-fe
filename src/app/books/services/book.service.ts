@@ -1,14 +1,12 @@
 import { IBookModel } from './../book.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { config } from '../../config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-
-  private API_URL = 'http://localhost:3000/api/books';
 
   constructor(private http: HttpClient) { }
 
@@ -22,22 +20,22 @@ export class BookService {
     formData.append('PagesRead', body.PagesRead);
     formData.append('UserID', body.UserID);
 
-    return this.http.post<IBookModel>(this.API_URL, formData);
+    return this.http.post<IBookModel>(`${config.apiUrl}/books`, formData);
   }
 
   getBooks(userId) {
-    return this.http.get<IBookModel[]>(`${this.API_URL}/user/${userId}`);
+    return this.http.get<IBookModel[]>(`${config.apiUrl}/books/user/${userId}`);
   }
 
   getSelectedBook(bookId) {
-    return this.http.get<IBookModel>(`${this.API_URL}/${bookId}`);
+    return this.http.get<IBookModel>(`${config.apiUrl}/books/${bookId}`);
   }
 
   editSelectedBook(body) {
-    return this.http.put<IBookModel>(this.API_URL, body);
+    return this.http.put<IBookModel>(`${config.apiUrl}/books`, body);
   }
 
   deleteSelectedBook(bookId) {
-    return this.http.delete<IBookModel>(`${this.API_URL}/${bookId}`);
+    return this.http.delete<IBookModel>(`${config.apiUrl}/books/${bookId}`);
   }
 }

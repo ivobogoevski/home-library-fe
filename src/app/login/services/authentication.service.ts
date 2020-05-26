@@ -11,12 +11,11 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private API_URL = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) {}
 
   login(body: IAuthRequest): Observable<IAuthResponse> {
-    return this.http.post<IAuthResponse>(`${this.API_URL}/login`, body);
+    return this.http.post<IAuthResponse>(`${config.apiUrl}/users/login`, body);
   }
 
   refreshToken() {
