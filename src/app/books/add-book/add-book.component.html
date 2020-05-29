@@ -14,7 +14,7 @@
 
   <div class="select-image-wrapper">
     <button class="btn select-image-btn" type="button" (click)="selectImage.click()">Select Image</button>
-    <input name="selectImage" (ngModel)="selectedImage" type="file" accept="image/png image/jpg image/jpeg" class="select-image-input" (change)="onImageChange($event)" #selectImage required>
+    <input name="selectImage" (ngModel)="selectedImage" type="file" accept="image/png,image/jpg,image/jpeg" class="select-image-input" (change)="onImageChange($event)" #selectImage required>
     <p *ngIf="submitted && !selectedImage" class="error-msg">Image is required.</p>
   </div>
 
